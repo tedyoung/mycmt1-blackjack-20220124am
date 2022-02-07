@@ -55,4 +55,21 @@ public class Hand {
                                 .collect(Collectors.joining(
                                        ansi().cursorUp(6).cursorRight(1).toString())));
     }
+
+    boolean isBusted() {
+        return value() > 21;
+    }
+
+    // TODO: Is this specific to Dealer Hand?
+    boolean shouldDealerHit() {
+        return value() <= 16;
+    }
+
+    boolean pushes(Hand hand) {
+        return value() == hand.value();
+    }
+
+    boolean beats(Hand hand) {
+        return value() > hand.value();
+    }
 }
