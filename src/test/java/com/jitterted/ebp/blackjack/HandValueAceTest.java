@@ -30,6 +30,24 @@ public class HandValueAceTest {
                 .isEqualTo(1 + 8 + 3);
     }
 
+    @Test
+    public void handWithOneAceAndOneTenValueCardIsValuedAt21() throws Exception {
+        List<Card> cards = createCardListOf("A", "J");
+        Hand hand = Hand.createForTest(cards);
+
+        assertThat(hand.value())
+                .isEqualTo(11 + 10);
+    }
+
+    @Test
+    public void handWithOneAceAndOtherCardsValuedAs12IsValuedAt13() throws Exception {
+        List<Card> cards = createCardListOf("A", "7", "5");
+        Hand hand = Hand.createForTest(cards);
+
+        assertThat(hand.value())
+                .isEqualTo(1 + 7 + 5);
+    }
+
     private List<Card> createCardListOf(String... ranks) {
         return Arrays.stream(ranks)
                      .map(rank -> new Card(DUMMY_SUIT, rank))
