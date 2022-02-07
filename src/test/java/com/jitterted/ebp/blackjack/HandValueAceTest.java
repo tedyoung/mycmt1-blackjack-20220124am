@@ -2,7 +2,6 @@ package com.jitterted.ebp.blackjack;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,19 +14,19 @@ public class HandValueAceTest {
 
     @Test
     public void handWithOneAceTwoCardsIsValuedAt11() throws Exception {
-        Game game = new Game();
         List<Card> cards = createCardListOf("A", "5");
+        Hand hand = Hand.createForTest(cards);
 
-        assertThat(game.handValueOf(cards))
+        assertThat(hand.value())
                 .isEqualTo(11 + 5); // EVIDENT DATA
     }
 
     @Test
     public void handWithOneAceAndOtherCardsEqualTo11IsValuedAt1() throws Exception {
-        Game game = new Game();
         List<Card> cards = createCardListOf("A", "8", "3");
+        Hand hand = Hand.createForTest(cards);
 
-        assertThat(game.handValueOf(cards))
+        assertThat(hand.value())
                 .isEqualTo(1 + 8 + 3);
     }
 
