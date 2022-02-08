@@ -16,4 +16,17 @@ public class WalletTest {
                 .isTrue();
     }
 
+    @Test
+    public void newWalletAddMoneyIsNotEmpty() throws Exception {
+        // Given a new wallet
+        Wallet wallet = new Wallet();
+
+        // When we add money
+        wallet.addMoney(1);
+
+        // Then we expect it to NOT be Empty
+        assertThat(wallet.isEmpty())
+                .isFalse();
+    }
+
 }
