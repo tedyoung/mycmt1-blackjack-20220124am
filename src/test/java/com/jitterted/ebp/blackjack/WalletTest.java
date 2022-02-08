@@ -67,5 +67,14 @@ public class WalletTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    public void addZeroMoneyThrowsException() throws Exception {
+        Wallet wallet = new Wallet();
+
+        assertThatThrownBy(() -> {
+            wallet.addMoney(0);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
+
 
