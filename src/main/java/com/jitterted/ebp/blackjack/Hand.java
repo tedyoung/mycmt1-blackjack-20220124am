@@ -66,10 +66,12 @@ public class Hand {
     }
 
     boolean pushes(Hand hand) {
+        // guard clause: require not busted
         return value() == hand.value();
     }
 
     boolean beats(Hand hand) {
+        // guard clause: require not busted
         return value() > hand.value();
     }
 }
