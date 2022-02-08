@@ -12,10 +12,17 @@ public class Wallet {
     }
 
     public void addMoney(int amount) {
+        checkAmountNotNegative(amount);
         balance += amount;
     }
 
     public int balance() {
         return balance;
+    }
+
+    private void checkAmountNotNegative(int amount) {
+        if (amount <= -1) {
+            throw new IllegalArgumentException();
+        }
     }
 }
